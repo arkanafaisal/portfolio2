@@ -1,4 +1,6 @@
 .aider*
+!.aider.rules.md
+
 .env
 
 node_modules/
