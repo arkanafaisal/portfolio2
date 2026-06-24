@@ -26,18 +26,15 @@ export default function Navbar({ currentPage, onBackToHome, onNavigateSection }:
     }
   }, []);
 
-  // Lock body & html scroll when hamburger menu is open
+  // Lock body scroll when hamburger menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('no-scroll');
     } else {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
+      document.body.classList.remove('no-scroll');
     }
     return () => {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
+      document.body.classList.remove('no-scroll');
     };
   }, [isMenuOpen]);
 
@@ -80,7 +77,7 @@ export default function Navbar({ currentPage, onBackToHome, onNavigateSection }:
 
   return (
     <>
-      <header className="fixed top-0 left-0 z-50 w-full border-b border-border-line bg-card-surface transition-colors duration-200">
+      <header className="shrink-0 h-16 z-50 w-full border-b border-border-line bg-card-surface transition-colors duration-200 touch-none">
         <div className="mx-auto flex h-16 max-w-lg items-center justify-between px-6">
           {/* Left Side: Back Button or Logo */}
           {currentPage === 'detail' ? (
@@ -132,7 +129,7 @@ export default function Navbar({ currentPage, onBackToHome, onNavigateSection }:
           />
 
           {/* Navigation Drawer Container */}
-          <nav className="fixed left-0 top-16 z-50 w-full max-h-[50vh] overflow-y-auto border-b border-border-line bg-card-surface px-6 py-4 shadow-lg transition-all duration-200 ease-global">
+          <nav className="fixed left-1/2 -translate-x-1/2 top-16 z-50 w-full max-w-lg max-h-[50vh] overflow-hidden border-b border-border-line bg-card-surface px-6 py-4 shadow-lg transition-all duration-200 ease-global">
             <ul className="flex flex-col gap-1.5">
               {menuItems.map((item) => (
                 <li key={item.id}>

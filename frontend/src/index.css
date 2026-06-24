@@ -18,6 +18,13 @@
   --ease-global: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -74,7 +81,22 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  scrollbar-gutter: stable;
   background-color: var(--bg-main);
   color: var(--txt-primary);
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Lock scroll without layout shift: touch-action: none on mobile, overflow: hidden on desktop */
+body.no-scroll {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+}
+body.no-scroll #main-scroll {
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  body.no-scroll {
+    overflow: hidden;
+  }
 }
