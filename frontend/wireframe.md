@@ -14,14 +14,14 @@ Halaman ini berfungsi sebagai etalase utama. Tujuan utamanya adalah memberikan k
 | [Logo]            [☾] [≡] |  <-- Sticky Navbar (Theme Toggle & Menu)
 +---------------------------+
 |                           |
-|      HI, SAYA [NAMA]      |
+|  [•] AVAILABLE FOR WORK   |  <-- STATUS BADGE (Titik Hijau Emerald berkedip / animate-pulse)
 |                           |
 |  Full-Stack Developer     |  <-- HERO SECTION
 |  Membangun sistem web     |      Teks tebal, to-the-point, fokus pada nilai/hasil.
-|  skalabel dan responsif.  |
+|  skalabel dan responsif.  |      Warna subtitle diterangkan (`text-zinc-300 text-lg`).
 |                           |
-|   [ Hire Me ] [ Get CV ]  |  <-- DOUBLE CTA (Call to Action)
-|                           |      Primary Button untuk Klien, Secondary untuk HRD.
+| [ Hire Me ] [ Get CV ]    |  <-- DOUBLE CTA (Left-Aligned Flexbox, BUKAN Grid 50:50)
+|                           |      Primary (Solid Amber), Secondary (Tinted Surface Amber).
 +---------------------------+
 |                           |
 |  == FEATURED PROJECTS ==  |  <-- SELECTED WORKS
@@ -102,6 +102,7 @@ Saat pengguna melakukan *tap* pada ikon `[≡]`, menu akan terbuka sebagai dropd
 
 ### 1.3. Penjelasan UI Main Page
 *   **Hero Image/Text:** Tidak ada dekorasi berlebihan. Fokus pada proposisi nilai.
+*   **Hero Layout & Styling:** Tata letak tombol wajib merujuk pada konsep *Left-Aligned Flexbox* (`flex flex-wrap justify-start gap-4`) agar serasi dengan teks rata kiri. Jangan menggunakan warna utama (*primary*) pada *subtitle*, melainkan gunakan *zinc* dengan tingkat kecerahan tinggi.
 *   **Get CV Button:** Tombol ini dikonfigurasi untuk membuka file CV berformat PDF di **tab browser baru** (`target="_blank"`). Ini adalah standar industri yang mempermudah perekrut (HRD) membaca CV secara instan menggunakan penampil PDF bawaan browser seluler tanpa harus mengunduh file secara terpaksa ke penyimpanan lokal perangkat mereka.
 *   **Konsistensi Dimensi:** Semua gambar sampul (*thumbnail*) proyek memiliki rasio yang seragam. Ini memberikan kesan arsitektur UI yang matang dan berkelas.
 *   **Navigasi:** Penggunaan `position: sticky` pada *navbar* menjamin akses cepat ke menu kapan saja tanpa harus melakukan *scroll* balik ke paling atas. Navigasi seluler menggunakan *partial-height dropdown overlay* yang menyisakan pandangan pada konten di belakangnya untuk orientasi spasial yang lebih baik.

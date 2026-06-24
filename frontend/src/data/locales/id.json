@@ -12,13 +12,13 @@
     "theme_dark": "Gelap"
   },
   "profile": {
-    "greeting": "HI, SAYA ARKANA",
+    "greeting": "SIAP BEKERJA",
     "name": "Arkana",
     "role": "Full-Stack Developer",
     "intro": "Membangun sistem web skalabel dan responsif.",
-    "hireMeText": "Hire Me",
+    "hireMeText": "Rekrut Saya",
     "hireMeLink": "mailto:hello@example.com",
-    "cvText": "Get CV",
+    "cvText": "Unduh CV",
     "cvUrl": "/resume.pdf",
     "email": "hello@example.com",
     "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200&h=200",
