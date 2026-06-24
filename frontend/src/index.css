@@ -1,22 +1,77 @@
 @import "tailwindcss";
 
+@theme {
+  /* Design System Colors */
+  --color-bg-main: var(--bg-main);
+  --color-card-surface: var(--card-surface);
+  --color-txt-primary: var(--txt-primary);
+  --color-txt-secondary: var(--txt-secondary);
+  --color-cta-primary: var(--cta-primary);
+  --color-cta-primary-hover: var(--cta-primary-hover);
+  --color-cta-primary-text: var(--cta-primary-text);
+  --color-cta-secondary: var(--cta-secondary);
+  --color-cta-secondary-hover: var(--cta-secondary-hover);
+  --color-border-line: var(--border-line);
+  --color-border-line-hover: var(--border-line-hover);
+  
+  /* Global Transition Ease Curve */
+  --ease-global: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Theme color-scheme compatibility */
+  color-scheme: light dark;
+
+  /* Light Mode Colors (design-system.md) */
+  --bg-main: #FAFAFA;
+  --card-surface: #FFFFFF;
+  --txt-primary: #09090B;
+  --txt-secondary: #52525B;
+  --cta-primary: #18181B;
+  --cta-primary-hover: #27272A;
+  --cta-primary-text: #FFFFFF;
+  --cta-secondary: #F4F4F5;
+  --cta-secondary-hover: #E4E4E7;
+  --border-line: #E4E4E7;
+  --border-line-hover: #D4D4D8;
 }
 
+.dark {
+  /* Dark Mode Colors (design-system.md) */
+  --bg-main: #09090B;
+  --card-surface: #18181B;
+  --txt-primary: #FAFAFA;
+  --txt-secondary: #A1A1AA;
+  --cta-primary: #FFFFFF;
+  --cta-primary-hover: #E4E4E7;
+  --cta-primary-text: #09090B;
+  --cta-secondary: #27272A;
+  --cta-secondary-hover: #3F3F46;
+  --border-line: #27272A;
+  --border-line-hover: #3F3F46;
+}
+
+/* Accessibility Focus Ring */
+*:focus-visible {
+  outline: 2px solid #A1A1AA; /* Zinc-400 */
+  outline-offset: 2px;
+}
+
+/* Global base styles with transition for smooth theme switching */
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--txt-primary);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
