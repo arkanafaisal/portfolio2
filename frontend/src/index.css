@@ -28,6 +28,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Prevent layout shift when scrollbar is hidden on lock scroll */
+  scrollbar-gutter: stable;
+
   /* Theme color-scheme compatibility */
   color-scheme: light dark;
 

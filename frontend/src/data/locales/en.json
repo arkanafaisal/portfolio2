@@ -1,4 +1,15 @@
 {
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "experience": "Experience",
+    "contact": "Contact",
+    "back": "Back",
+    "theme": "Theme",
+    "language": "Language",
+    "theme_light": "Light",
+    "theme_dark": "Dark"
+  },
   "profile": {
     "name": "Alex Wijaya",
     "role": "Full-Stack Developer",

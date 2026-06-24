@@ -1,4 +1,15 @@
 {
+  "nav": {
+    "home": "Beranda",
+    "work": "Proyek",
+    "experience": "Pengalaman",
+    "contact": "Kontak",
+    "back": "Kembali",
+    "theme": "Tema",
+    "language": "Bahasa",
+    "theme_light": "Terang",
+    "theme_dark": "Gelap"
+  },
   "profile": {
     "name": "Alex Wijaya",
     "role": "Full-Stack Developer",
