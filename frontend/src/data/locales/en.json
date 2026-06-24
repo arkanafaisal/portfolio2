@@ -1,5 +1,6 @@
 {
   "nav": {
+    "logo": "ARKANA",
     "home": "Home",
     "work": "Work",
     "experience": "Experience",
@@ -11,11 +12,15 @@
     "theme_dark": "Dark"
   },
   "profile": {
-    "name": "Alex Wijaya",
+    "greeting": "HI, I'M ARKANA",
+    "name": "Arkana",
     "role": "Full-Stack Developer",
-    "intro": "Building scalable and responsive web systems oriented towards performance and business needs.",
-    "cvUrl": "/cv-alex-wijaya.pdf",
-    "email": "alex.wijaya@domain.com",
+    "intro": "Building scalable and responsive web systems.",
+    "hireMeText": "Hire Me",
+    "hireMeLink": "mailto:hello@example.com",
+    "cvText": "Get CV",
+    "cvUrl": "/resume.pdf",
+    "email": "hello@example.com",
     "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200&h=200",
     "socials": [
       { "platform": "LinkedIn", "url": "https://linkedin.com/in/alex-wijaya", "label": "LN" },

@@ -40,27 +40,30 @@ export default function App() {
           {currentPage === 'home' ? (
             <div className="flex flex-col gap-12">
               {/* Section Home */}
-              <section id="home" className="py-12 border-b border-border-line/40">
-                <h1 className="text-4xl font-extrabold text-txt-primary mb-4">
-                  {t('profile.name')}
-                </h1>
-                <p className="text-xl text-txt-secondary">
-                  {t('profile.role')}
+              <section id="home" className="pt-[10vh] pb-16 border-b border-border-line/40 flex flex-col items-start">
+                <p className="text-sm font-semibold tracking-widest text-txt-secondary uppercase mb-3">
+                  {t('profile.greeting')}
                 </p>
-                <p className="mt-4 text-txt-secondary leading-relaxed">
+                <h1 className="text-5xl sm:text-6xl font-extrabold text-txt-primary leading-[1.15] tracking-tight mb-6">
+                  {t('profile.role')}
+                </h1>
+                <p className="text-lg sm:text-xl text-txt-secondary leading-relaxed max-w-md mb-8">
                   {t('profile.intro')}
                 </p>
-                <div className="mt-6 flex gap-4">
-                  <button className="px-5 py-2.5 bg-cta-primary text-cta-primary-text font-bold rounded hover:bg-cta-primary-hover transition-colors duration-200 shadow-sm">
-                    {t('profile.email')}
-                  </button>
+                <div className="mt-8 grid grid-cols-2 gap-3 w-full">
+                  <a 
+                    href={t('profile.hireMeLink')} 
+                    className="w-full flex items-center justify-center px-6 py-3.5 bg-cta-primary text-cta-primary-text font-bold rounded hover:bg-cta-primary-hover transition-colors duration-200 shadow-sm text-sm sm:text-base text-center"
+                  >
+                    {t('profile.hireMeText')}
+                  </a>
                   <a
                     href={t('profile.cvUrl')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 bg-cta-secondary text-txt-primary font-bold rounded border border-border-line hover:bg-cta-secondary-hover transition-colors duration-200"
+                    className="w-full flex items-center justify-center px-6 py-3.5 bg-cta-secondary text-txt-primary font-bold rounded border border-border-line hover:bg-cta-secondary-hover transition-colors duration-200 shadow-sm text-sm sm:text-base text-center"
                   >
-                    Get CV
+                    {t('profile.cvText')}
                   </a>
                 </div>
               </section>

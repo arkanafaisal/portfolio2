@@ -93,7 +93,7 @@ export default function Navbar({ currentPage, onBackToHome, onNavigateSection }:
               onClick={() => onNavigateSection('home')}
               className="text-lg font-extrabold tracking-wider text-txt-primary hover:opacity-80 transition-opacity"
             >
-              AW.DEV
+              {t('nav.logo')}
             </button>
           )}
 
