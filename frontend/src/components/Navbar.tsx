@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Sun, Moon, Menu, X, ArrowLeft } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: 'home' | 'detail';
@@ -85,10 +86,10 @@ export default function Navbar({ currentPage, onBackToHome, onNavigateSection }:
           {currentPage === 'detail' ? (
             <button
               onClick={onBackToHome}
-              className="flex items-center gap-1 text-sm font-semibold text-txt-primary hover:text-txt-secondary transition-colors duration-200"
+              className="flex items-center gap-1.5 text-sm font-semibold text-txt-primary hover:text-txt-secondary transition-colors duration-200"
               aria-label="Back to home"
             >
-              <span>←</span> {t('nav.back')}
+              <ArrowLeft className="w-4 h-4" /> {t('nav.back')}
             </button>
           ) : (
             <button
@@ -106,15 +107,15 @@ export default function Navbar({ currentPage, onBackToHome, onNavigateSection }:
               className="flex h-10 w-10 items-center justify-center rounded-md border border-border-line hover:bg-cta-secondary transition-colors duration-200 text-txt-primary"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? '☀' : '☾'}
+              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-md border border-border-line hover:bg-cta-secondary transition-colors duration-200 text-txt-primary text-xl font-bold"
+              className="flex h-10 w-10 items-center justify-center rounded-md border border-border-line hover:bg-cta-secondary transition-colors duration-200 text-txt-primary"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? '✕' : '☰'}
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
