@@ -1,0 +1,138 @@
+{
+  "profile": {
+    "name": "Alex Wijaya",
+    "role": "Full-Stack Developer",
+    "intro": "Membangun sistem web skalabel dan responsif yang berorientasi pada performa dan kebutuhan bisnis.",
+    "cvUrl": "/cv-alex-wijaya.pdf",
+    "email": "alex.wijaya@domain.com",
+    "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200&h=200",
+    "socials": [
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/alex-wijaya", "label": "LN" },
+      { "platform": "GitHub", "url": "https://github.com/alex-wijaya", "label": "GH" },
+      { "platform": "Portfolio", "url": "https://alex-wijaya.dev", "label": "Web" }
+    ]
+  },
+  "services": [
+    {
+      "title": "Pengembangan API",
+      "description": "Merancang API RESTful dan GraphQL yang cepat, aman, dan terdokumentasi dengan baik menggunakan Node.js dan Go."
+    },
+    {
+      "title": "Arsitektur Database",
+      "description": "Desain skema relasional dan non-relasional serta optimasi kueri untuk performa tinggi di PostgreSQL dan MongoDB."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Bahasa Pemrograman & Framework",
+      "items": ["JavaScript", "TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"]
+    },
+    {
+      "category": "Alat & Infrastruktur",
+      "items": ["Git", "Docker", "AWS", "Nginx", "CI/CD", "Vite"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "kasir-mobile",
+      "title": "Aplikasi Kasir Mobile",
+      "impact": "Impact: 0% Data Loss (Offline-First)",
+      "techStack": ["React Native", "Node.js", "SQLite", "Express"],
+      "mockupUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600&h=400",
+      "liveUrl": "https://kasir-demo.example.com",
+      "githubUrl": "https://github.com/alex-wijaya/kasir-mobile",
+      "problem": "Kasir di lapangan sering kali kehilangan sinyal internet saat transaksi berlangsung, menyebabkan transaksi tidak tercatat dan hilangnya data penting bagi operasional bisnis.",
+      "architecture": {
+        "description": "Sistem arsitektur offline-first menggunakan sinkronisasi SQLite lokal dengan server PostgreSQL terpusat melalui queue berbasis Redis.",
+        "diagramUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600&h=400"
+      },
+      "gallery": [
+        {
+          "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=300&h=600",
+          "description": "Halaman Checkout: Antarmuka kasir cepat dengan pencarian produk cerdas.",
+          "isPortrait": true
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=300",
+          "description": "Laporan Pendapatan: Grafik analitik penjualan harian secara real-time.",
+          "isPortrait": false
+        }
+      ],
+      "codeHighlight": {
+        "title": "Logika Sinkronisasi Offline",
+        "language": "javascript",
+        "code": "const syncPendingData = async () => {\n  try {\n    const pendingTransactions = await getLocalTransactions();\n    if (pendingTransactions.length === 0) return;\n\n    const response = await api.post('/sync', { data: pendingTransactions });\n    if (response.status === 200) {\n      await clearPendingTransactions();\n      notifyUser('Data successfully synced!');\n    }\n  } catch (error) {\n    console.error('Offline sync failed, will retry:', error);\n  }\n};",
+        "description": "Service worker dan antrean lokal untuk memastikan pengiriman ulang data transaksi saat koneksi kembali stabil."
+      },
+      "challenges": [
+        "RAM ponsel low-end sering kehabisan memori saat memproses puluhan ribu data produk lokal.",
+        "Resolusi konflik data transaksi ganda saat sinkronisasi tertunda."
+      ],
+      "results": [
+        "Lebih dari 10.000 transaksi harian berhasil diproses tanpa ada kehilangan data tunggal.",
+        "Waktu transaksi berkurang 40% karena proses pencarian produk lokal."
+      ]
+    },
+    {
+      "id": "sistem-gudang",
+      "title": "Sistem Gudang B2B",
+      "impact": "Impact: Kecepatan Muat Halaman < 1 Detik",
+      "techStack": ["React", "Go", "PostgreSQL", "Docker"],
+      "mockupUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600&h=400",
+      "liveUrl": "https://gudang-demo.example.com",
+      "githubUrl": "https://github.com/alex-wijaya/sistem-gudang",
+      "problem": "Sistem manajemen stok lama lambat memuat halaman data barang yang menampung ratusan ribu item, memperlambat proses pengemasan barang di gudang logistik.",
+      "architecture": {
+        "description": "Optimalisasi database relasional menggunakan indexing cerdas, query cache dengan Redis, dan REST API efisien berbasis Go.",
+        "diagramUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600&h=400"
+      },
+      "gallery": [
+        {
+          "url": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=600&h=300",
+          "description": "Dasbor Utama: Statistik stok real-time dan notifikasi stok kritis.",
+          "isPortrait": false
+        }
+      ],
+      "codeHighlight": {
+        "title": "Query SQL dengan Paging Teroptimasi",
+        "language": "sql",
+        "code": "SELECT id, name, sku, stock\nFROM inventory_items\nWHERE active = true\nORDER BY created_at DESC\nLIMIT 20 OFFSET 0; -- Terindeks berdasarkan created_at",
+        "description": "Indexing pada kolom pencarian dan pengurutan memastikan respon database di bawah 50ms meskipun tabel memiliki 500.000+ baris data."
+      },
+      "challenges": [
+        "Penyesuaian stok real-time saat terjadi ribuan transaksi masuk dan keluar secara bersamaan."
+      ],
+      "results": [
+        "Waktu muat halaman terpangkas dari 8 detik menjadi di bawah 1 detik.",
+        "Meningkatkan efisiensi kerja staf logistik gudang hingga 35%."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Senior Full-Stack Developer",
+      "company": "PT Tech Jaya Nusantara",
+      "period": "2022 - Sekarang",
+      "details": [
+        "Memimpin tim berisi 4 developer dalam migrasi sistem monolitik ke mikroservis berbasis Go.",
+        "Mengurangi latensi API sebesar 50% dan memangkas biaya infrastruktur cloud bulanan sebanyak 20%."
+      ]
+    },
+    {
+      "id": "exp-2",
+      "role": "Junior Web Developer",
+      "company": "Startup Digital Mulia",
+      "period": "2020 - 2022",
+      "details": [
+        "Membangun lebih dari 15 landing page responsif dan memelihara dasbor internal admin berbasis React.",
+        "Menulis automated testing menggunakan Jest, menaikkan cakupan uji coba kode (coverage) menjadi 80%."
+      ]
+    }
+  ],
+  "testimonial": {
+    "quote": "Alex memiliki kemampuan luar biasa dalam memecahkan masalah performa sistem. Kode-kodenya terstruktur dengan sangat rapi, terdokumentasi dengan baik, dan minim bug saat naik ke tahap produksi.",
+    "author": "Budi Santoso",
+    "role": "CTO @ PT Tech Jaya Nusantara"
+  }
+}

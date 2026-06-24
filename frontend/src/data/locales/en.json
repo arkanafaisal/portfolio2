@@ -1,0 +1,138 @@
+{
+  "profile": {
+    "name": "Alex Wijaya",
+    "role": "Full-Stack Developer",
+    "intro": "Building scalable and responsive web systems oriented towards performance and business needs.",
+    "cvUrl": "/cv-alex-wijaya.pdf",
+    "email": "alex.wijaya@domain.com",
+    "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200&h=200",
+    "socials": [
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/alex-wijaya", "label": "LN" },
+      { "platform": "GitHub", "url": "https://github.com/alex-wijaya", "label": "GH" },
+      { "platform": "Portfolio", "url": "https://alex-wijaya.dev", "label": "Web" }
+    ]
+  },
+  "services": [
+    {
+      "title": "API Development",
+      "description": "Designing fast, secure, and well-documented RESTful and GraphQL APIs using Node.js and Go."
+    },
+    {
+      "title": "Database Architecture",
+      "description": "Relational and non-relational schema design and query optimization for high performance in PostgreSQL and MongoDB."
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages & Frameworks",
+      "items": ["JavaScript", "TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"]
+    },
+    {
+      "category": "Tools & Infrastructure",
+      "items": ["Git", "Docker", "AWS", "Nginx", "CI/CD", "Vite"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "kasir-mobile",
+      "title": "Mobile Cashier App",
+      "impact": "Impact: 0% Data Loss (Offline-First)",
+      "techStack": ["React Native", "Node.js", "SQLite", "Express"],
+      "mockupUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600&h=400",
+      "liveUrl": "https://kasir-demo.example.com",
+      "githubUrl": "https://github.com/alex-wijaya/kasir-mobile",
+      "problem": "Cashiers in the field often lose internet connection during transactions, resulting in unrecorded transactions and critical data loss for business operations.",
+      "architecture": {
+        "description": "An offline-first architecture synchronizing local SQLite with a centralized PostgreSQL server via a Redis-based queue.",
+        "diagramUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600&h=400"
+      },
+      "gallery": [
+        {
+          "url": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=300&h=600",
+          "description": "Checkout Page: Fast cashier interface with smart product search.",
+          "isPortrait": true
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=300",
+          "description": "Revenue Report: Real-time daily sales analytics chart.",
+          "isPortrait": false
+        }
+      ],
+      "codeHighlight": {
+        "title": "Offline Synchronization Logic",
+        "language": "javascript",
+        "code": "const syncPendingData = async () => {\n  try {\n    const pendingTransactions = await getLocalTransactions();\n    if (pendingTransactions.length === 0) return;\n\n    const response = await api.post('/sync', { data: pendingTransactions });\n    if (response.status === 200) {\n      await clearPendingTransactions();\n      notifyUser('Data successfully synced!');\n    }\n  } catch (error) {\n    console.error('Offline sync failed, will retry:', error);\n  }\n};",
+        "description": "Service worker and local queue to ensure transaction data redelivery once connection becomes stable."
+      },
+      "challenges": [
+        "Low-end mobile phone RAM running out of memory when processing tens of thousands of local product data.",
+        "Resolving duplicate transaction data conflicts during delayed synchronization."
+      ],
+      "results": [
+        "Over 10,000 daily transactions successfully processed with zero data loss.",
+        "Transaction time reduced by 40% due to local product search capabilities."
+      ]
+    },
+    {
+      "id": "sistem-gudang",
+      "title": "B2B Warehouse System",
+      "impact": "Impact: Page Load Speed < 1 Second",
+      "techStack": ["React", "Go", "PostgreSQL", "Docker"],
+      "mockupUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600&h=400",
+      "liveUrl": "https://gudang-demo.example.com",
+      "githubUrl": "https://github.com/alex-wijaya/sistem-gudang",
+      "problem": "The legacy inventory system was slow loading pages with hundreds of thousands of items, dragging down packing efficiency at logistics warehouses.",
+      "architecture": {
+        "description": "Relational database optimization using smart indexing, query caching with Redis, and an efficient Go REST API.",
+        "diagramUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600&h=400"
+      },
+      "gallery": [
+        {
+          "url": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=600&h=300",
+          "description": "Main Dashboard: Real-time stock statistics and low stock alerts.",
+          "isPortrait": false
+        }
+      ],
+      "codeHighlight": {
+        "title": "Optimized Paging SQL Query",
+        "language": "sql",
+        "code": "SELECT id, name, sku, stock\nFROM inventory_items\nWHERE active = true\nORDER BY created_at DESC\nLIMIT 20 OFFSET 0; -- Terindeks berdasarkan created_at",
+        "description": "Indexing search and sorting columns ensures database response under 50ms even with 500,000+ records."
+      },
+      "challenges": [
+        "Real-time stock adjustment under concurrent input-output transaction loads."
+      ],
+      "results": [
+        "Page load speed slashed from 8 seconds to under 1 second.",
+        "Boosted warehouse staff operational efficiency by 35%."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Senior Full-Stack Developer",
+      "company": "PT Tech Jaya Nusantara",
+      "period": "2022 - Present",
+      "details": [
+        "Led a team of 4 developers migrating monolithic systems to Go-based microservices.",
+        "Reduced API latency by 50% and slashed monthly cloud infrastructure bills by 20%."
+      ]
+    },
+    {
+      "id": "exp-2",
+      "role": "Junior Web Developer",
+      "company": "Startup Digital Mulia",
+      "period": "2020 - 2022",
+      "details": [
+        "Built over 15 responsive landing pages and maintained internal React admin dashboards.",
+        "Wrote automated tests using Jest, increasing overall code test coverage to 80%."
+      ]
+    }
+  ],
+  "testimonial": {
+    "quote": "Alex has an exceptional ability to resolve system performance bottlenecks. His code is highly structured, well-documented, and extremely clean when shipped to production.",
+    "author": "Budi Santoso",
+    "role": "CTO @ PT Tech Jaya Nusantara"
+  }
+}
